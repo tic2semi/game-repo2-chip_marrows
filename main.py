@@ -17,7 +17,7 @@ screen=pygame.display.set_mode(dimensiones)
 pygame.display.set_caption("Mi Juego")
 pygame.display.flip()
 
-imagen1 = pygame.image.load('img fondo.png')
+imagen1 = pygame.image.load('assets/img fondo.png')
 punto1 = (0,0)
 screen.blit(imagen1, punto1)
 pygame.display.flip()
@@ -45,12 +45,17 @@ continuar=True
 while continuar:
                      
     for event in pygame.event.get():
-       if event.type==QUIT or event.type==pygame.KEYDOWN:
+       if event.type==QUIT:
             continuar=False
-            
-      
+        #Abajo intento que suene el sonido al pulsar la "
 
-    clock.tick(60)
+    sonido = pygame.mixer.Sound("assets/Feedback_sonidos codigo/sonidos/desplazamiento puño1.wav")
+    keystate = pygame.key.get_pressed() 
+    if keystate[pygame.K_j]:
+        sonido.play()
+        print("sonido")         
+
+clock.tick(60)
     
 pygame.quit()
 sys.exit();
