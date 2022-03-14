@@ -1,0 +1,76 @@
+#Chip Marrows
+import pygame, sys, os
+from pygame.locals import *
+pygame.mixer.pre_init(frequency=22050, size=-16, channels=2, buffer=4096)
+pygame.init()
+# Center the Game Application
+os.environ['SDL_VIDEO_CENTERED']='1'
+clock = pygame.time.Clock()
+# Resolucion
+screen_width=800
+screen_height=600
+screen=pygame.display.set_mode((screen_width, screen_height))
+
+#FONDO
+dimensiones=(800,600)
+screen=pygame.display.set_mode(dimensiones)
+pygame.display.set_caption("Mi Juego")
+pygame.display.flip()
+
+imagen1 = pygame.image.load('assets/img fondo.png')
+punto1 = (0,0)
+screen.blit(imagen1, punto1)
+pygame.display.flip()
+
+
+
+# Color
+black=(0, 0, 0)
+white=(255, 255, 255)
+blue=(0, 0, 255)
+VERDE=(0, 255, 0)
+# Initial Variables
+lineWidth=3
+
+
+#Puntos de la barra de vida
+puntox=(100,50)
+puntoy=(200,50)
+puntox1=(500,50)
+puntoy2=(200,50)
+
+
+def BackgroundGameplay():
+    screen.fill(black)
+    pygame.draw.rect(screen, blue, ((0, 0), (screen_width, screen_height)), lineWidth)
+    screen.blit(imagen1, punto1)
+    pygame.display.flip()
+#######################################################
+BackgroundGameplay()
+pygame.mouse.set_visible(3)
+
+continuar=True
+while continuar:
+                     
+    for event in pygame.event.get():
+       if event.type==QUIT:
+            continuar=False
+        #Abajo intento que suene el sonido al pulsar la "
+
+    sonido = pygame.mixer.Sound("assets/Feedback_sonidos codigo/sonidos/desplazamiento puño1.wav")
+    keystate = pygame.key.get_pressed() 
+    if keystate[pygame.K_j]:
+        sonido.play()
+        print("sonido")    
+    #Dibuja las barras de vida
+    pygame.draw.rect(screen,VERDE, (puntox,puntoy))
+    pygame.draw.rect(screen,VERDE, (puntox1,puntoy2))
+    pygame.display.flip()      
+
+
+clock.tick(60)
+    
+pygame.quit()
+sys.exit();
+
+
