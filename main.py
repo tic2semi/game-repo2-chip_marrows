@@ -14,7 +14,7 @@ screen=pygame.display.set_mode((screen_width, screen_height))
 #FONDO
 dimensiones=(800,600)
 screen=pygame.display.set_mode(dimensiones)
-pygame.display.set_caption("Mi Juego")
+pygame.display.set_caption("Chip Marrows")
 pygame.display.flip()
 
 imagen1 = pygame.image.load('assets/img fondo.png')
