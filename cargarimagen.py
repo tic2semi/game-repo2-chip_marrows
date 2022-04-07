@@ -15,14 +15,13 @@ dimensiones=(800,600)
 screen=pygame.display.set_mode(dimensiones)
 pygame.display.set_caption("Mi Juego")
 pygame.display.flip()
-
-imagen1 = pygame.image.load('assets/personajes/luchador1/neutro1.png')
-punto1 = (100,250)
-screen.blit(imagen1, punto1)
-
-imagen2 = pygame.image.load('assets/personajes/luchador2/neutro2.png')
-punto2 = (400,250)
-screen.blit(imagen2, punto2)
+def Fightrs()
+    imagen1 = pygame.image.load('assets/personajes/luchador1/neutro1.png')
+    Luch_1 = (100,250)
+    screen.blit(imagen1, luch_1)
+    imagen2 = pygame.image.load('assets/personajes/luchador2/neutro2.png')
+    luch_2 = (400,250)
+    screen.blit(imagen2, luch_2)
 
 
 pygame.display.flip()
@@ -52,13 +51,7 @@ while continuar:
             continuar=False
         #Abajo intento que suene el sonido al pulsar la "
 
-    sonido = pygame.mixer.Sound("assets/Feedback_sonidos codigo/sonidos/desplazamiento puño1.wav")
-    keystate = pygame.key.get_pressed() 
-    if keystate[pygame.K_j]:
-        sonido.play()
-        print("sonido")         
 
-clock.tick(60)
     
 pygame.quit()
 sys.exit();

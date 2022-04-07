@@ -20,7 +20,13 @@ def UI(screen,green):
     punto4=(200,50)
     pygame.draw.rect(screen,green, (punto1,punto2))
     pygame.draw.rect(screen,green, (punto3,punto4))
-    
+def Fightrs():
+    imagen1 = pygame.image.load('game-repo2-chip_marrows/assets/personajes/Luchador1/neutro1.png')
+    luch_1 = (100,250)
+    screen.blit(imagen1, luch_1)
+    imagen2 = pygame.image.load('game-repo2-chip_marrows/assets/personajes/Luchador 2/neutro2.png')
+    luch_2 = (400,250)
+    screen.blit(imagen2, luch_2)    
 # Center the Game Application
 os.environ['SDL_VIDEO_CENTERED']='1'
 clock = pygame.time.Clock()
@@ -49,8 +55,10 @@ lineWidth=3
 
  
 #######################################################
+#EJECUCION DE FUNCIONES 
 BackgroundGameplay()
 UI(screen,green)
+Fightrs()
 pygame.display.flip()
 pygame.mouse.set_visible(3)
 
