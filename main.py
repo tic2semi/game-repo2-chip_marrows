@@ -68,7 +68,17 @@ while continuar:
     for event in pygame.event.get():
        if event.type==QUIT:
             continuar=False
+            
+       keystate1 = pygame.key.get_pressed()
+    if keystate1[pygame.K_ESCAPE]:
+       continuar=False
        
+    keystate2 = pygame.key.get_pressed()
+    if keystate2[pygame.K_RETURN]:
+        imagen1 = pygame.image.load('assets/img fondo.png')
+        screen.blit(imagen1, punto1)
+        pygame.display.flip()
+        
 #Movimiento de puño a la "J" (solo sonido)
     sonido = pygame.mixer.Sound("game-repo2-chip_marrows/assets/Feedback_sonidos codigo/sonidos/desplazamiento puño1.wav")
     keystate = pygame.key.get_pressed() 
