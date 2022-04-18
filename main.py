@@ -41,7 +41,7 @@ screen=pygame.display.set_mode(dimensiones)
 pygame.display.set_caption("Chip Marrows")
 pygame.display.flip()
 
-imagen1 = pygame.image.load('game-repo2-chip_marrows/assets/img fondo.png')
+menu1 = pygame.image.load('game-repo2-chip_marrows/assets/img menu.png')
 punto1 = (0,0)
 screen.blit(imagen1, punto1)
 pygame.display.flip()
@@ -75,7 +75,7 @@ while continuar:
        
     keystate2 = pygame.key.get_pressed()
     if keystate2[pygame.K_RETURN]:
-        imagen1 = pygame.image.load('assets/img fondo.png')
+        fondo1 = pygame.image.load('assets/img fondo.png')
         screen.blit(imagen1, punto1)
         pygame.display.flip()
         
