@@ -8,6 +8,13 @@ black=(0, 0, 0)
 white=(255, 255, 255)
 blue=(0, 0, 255)
 green=(0, 255, 0)
+#Definimos un diccionario para los estados del luchador(por ahora ataque y neutro)
+estado_luch1 = {"neutral" : pygame.image.load('assets/personajes/Luchador1/neutro1.png'),
+                
+                "atack" : pygame.image.load("assets/personajes/Luchador1/variante_puño_opt-2.jpeg")}
+
+
+estado_luch2 = {"neutral" : pygame.image.load('assets/personajes/Luchador 2/neutro2.png')}
 def BackgroundGameplay():
     screen.fill(black)
     pygame.draw.rect(screen, blue, ((0, 0), (screen_width, screen_height)), lineWidth)
@@ -20,13 +27,14 @@ def UI(screen,green):
     punto4=(200,50)
     pygame.draw.rect(screen,green, (punto1,punto2))
     pygame.draw.rect(screen,green, (punto3,punto4))
-def Fightrs():
-    imagen1 = pygame.image.load('game-repo2-chip_marrows/assets/personajes/Luchador1/neutro1.png')
-    luch_1 = (100,250)
-    screen.blit(imagen1, luch_1)
-    imagen2 = pygame.image.load('game-repo2-chip_marrows/assets/personajes/Luchador 2/neutro2.png')
-    luch_2 = (400,250)
-    screen.blit(imagen2, luch_2)    
+def Fightrs(luch1, luch2):
+    luch1 = estado_luch1["neutral"] 
+    pos_1 = (100,250)
+    screen.blit(luch1 , pos_1)
+    luch2 = estado_luch2["neutral"]
+    pos_2 = (400,250)
+    screen.blit(luch2, pos_2)  
+ 
 # Center the Game Application
 os.environ['SDL_VIDEO_CENTERED']='1'
 clock = pygame.time.Clock()
@@ -41,7 +49,7 @@ screen=pygame.display.set_mode(dimensiones)
 pygame.display.set_caption("Chip Marrows")
 pygame.display.flip()
 
-menu1 = pygame.image.load('game-repo2-chip_marrows/assets/img menu.png')
+imagen1 = pygame.image.load('assets/img fondo.png')
 punto1 = (0,0)
 screen.blit(imagen1, punto1)
 pygame.display.flip()
@@ -58,7 +66,7 @@ lineWidth=3
 #EJECUCION DE FUNCIONES 
 BackgroundGameplay()
 UI(screen,green)
-Fightrs()
+Fightrs(estado_luch1 , estado_luch2)
 pygame.display.flip()
 pygame.mouse.set_visible(3)
 
@@ -68,23 +76,20 @@ while continuar:
     for event in pygame.event.get():
        if event.type==QUIT:
             continuar=False
-            
-       keystate1 = pygame.key.get_pressed()
-    if keystate1[pygame.K_ESCAPE]:
-       continuar=False
        
-    keystate2 = pygame.key.get_pressed()
-    if keystate2[pygame.K_RETURN]:
-        fondo1 = pygame.image.load('assets/img fondo.png')
-        screen.blit(imagen1, punto1)
-        pygame.display.flip()
-        
 #Movimiento de puño a la "J" (solo sonido)
-    sonido = pygame.mixer.Sound("game-repo2-chip_marrows/assets/Feedback_sonidos codigo/sonidos/desplazamiento puño1.wav")
+    sonido = pygame.mixer.Sound("assets/Feedback_sonidos codigo/sonidos/desplazamiento puño1.wav")
     keystate = pygame.key.get_pressed() 
     if keystate[pygame.K_j]:
         sonido.play()
-        print("sonido")         
+        luch1 = "atack"
+        estado_luch1[luch1]
+
+        
+
+                 
+ 
+
 
 clock.tick(60)
     
